@@ -14,7 +14,15 @@ const Header = (props) => (
             <ul className="list">
                 {props.rockets.map((item, i) => (
                     <li key={i} className="item">
-                        <a href="/" className="item-link">{item}</a>
+                        <a 
+                            href="/" 
+                            onClick={e => {
+                                e.preventDefault();
+                                props.changeRocket(item)
+                            }} 
+                            className="item-link">
+                                {item}
+                        </a>
                     </li>
                 ))}                
             </ul>

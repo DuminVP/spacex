@@ -44,11 +44,17 @@ class App extends React.Component {
     console.log('до', this.state);
   }
 
+  changeRocket = rocket => { // мы поменяли свойство rocket и теперь нужно обновить данные
+    this.setState({
+      rocket
+    }, this.updateRocket);
+  }
+
   render() {
     console.log(this.state)
     return (
       <>
-        <Header rockets={this.state.rockets} />
+        <Header rockets={this.state.rockets} changeRocket={this.changeRocket} />
         <Main rocket={this.state.rocket} />
         <Features />          
         <Footer />        
