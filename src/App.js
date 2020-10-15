@@ -7,7 +7,7 @@ import Main from './components/Main/Main';
 import Features from './components/Features/Features';
 import Footer from './components/Footer/Footer';
 import Calendar from './components/Calendar/Calendar';
-//import Details from './components/Details/Details';
+import Details from './components/Details/Details';
 import FetchData from './service/FetchData';
 
 import './style.css';
@@ -70,14 +70,19 @@ class App extends React.Component {
         </Route>
 
         <Route exact path='/rocket'>
-          {<Main rocket={this.state.rocket} />}
+          <Main rocket={this.state.rocket} />
           {this.state.rocketFeatures && 
             <Features {...this.state.rocketFeatures} />}
         </Route>
         
         <Route path='/calendar'>
-          <Main />
+          
           <Calendar />
+        </Route>
+
+        <Route path='/details'>
+          
+          <Details />
         </Route>
 
         {this.state.company && <Footer {...this.state.company} />}        
