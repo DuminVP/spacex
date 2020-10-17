@@ -2,7 +2,6 @@ import React from "react";
 import './home.css';
 import logo from '../../logo.svg'
 
-
 const Home = ({ company }) => (
 	<main className="main">
 		<div className="container">
@@ -14,8 +13,6 @@ const Home = ({ company }) => (
 					{company.summary}
 				</h2>
 			</hgroup>
-
-
 			<div className="row">
 				<table className="home_table home_table-manager">
 					<caption className="home_table-title">
@@ -38,11 +35,8 @@ const Home = ({ company }) => (
 							<td className="home_table-column table-column-left">CTO PROPULSION</td>
 							<td className="home_table-column">{company.cto_propulsion}</td>
 						</tr>
-
-
 					</thead>
 				</table>
-
 				<table className="home_table home_table-location">
 					<caption className="home_table-title">
 						Location
@@ -60,20 +54,15 @@ const Home = ({ company }) => (
 							<td className="home_table-column table-column-left">Address</td>
 							<td className="home_table-column">{company.headquarters.address}</td>
 						</tr>
-
 					</thead>
 				</table>
-
 				<video id="video" autoPlay loop muted className="responsive-video" width="100%" height="100%" preload="auto">
 					<source type="video/mp4" src="https://www.spacex.com/media/mission_reusability.mp4"/>
 					<source type="video/webm" src="https://www.spacex.com/media/mission_reusability.webm"/>
 				</video>
 			</div>
-
 		</div>
-
 	</main>
 );
-
 
 export default Home;

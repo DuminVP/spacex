@@ -1,8 +1,10 @@
 import React, { useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
-import useLaunches from '../useLaunches/useLaunches'
+import useLaunches from '../useLaunches/useLaunches';
+import Youtube from 'react-youtube';
 
 import './details.css';
+
 import Main from '../Main/Main';
 
 const Details = (props) => {
@@ -12,9 +14,8 @@ const Details = (props) => {
 
 	useEffect(() => { // залезли в пропсы и достали id
 		setLaunch(getLaunch(props.match.params.id));
-	}, [getLaunch])
-
-	console.log(launch);
+	}, [getLaunch]);
+	//console.log(launch);
 
 	const history = useHistory();
 
@@ -32,10 +33,8 @@ const Details = (props) => {
 						<div className="details-content">
 							<p className="details-description">{launch.details}</p>
 						</div>
-					</div>
-					<div>
-						
-					</div>
+					</div>					
+					<Youtube className='details-youtube' videoId={launch.links.youtube_id} />
 				</div>
 				<a onClick={history.goBack} className="button button-back">go back</a>
 			</main>
