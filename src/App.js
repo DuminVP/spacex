@@ -32,7 +32,7 @@ class App extends React.Component {
   
 
   updateRocket() {
-    console.log(this.state)
+    //console.log(this.state)
 
     this.fetchData.getRocket()
       .then(data => {
@@ -42,10 +42,10 @@ class App extends React.Component {
       .then(data => data.find(item => item.name === this.state.rocket)) // перебираем все рфкеты
       .then(rocketFeatures => {
         this.setState({ rocketFeatures }, () => {
-          console.log('после', this.state)
+          //console.log('после', this.state)
         });// получаем рокету после фильтрации и обновляем
       });
-    console.log('до', this.state);
+    //console.log('до', this.state);
   }
 
   changeRocket = rocket => { // мы поменяли свойство rocket и теперь нужно обновить данные
@@ -60,7 +60,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state)
+    //console.log(this.state)
     return (
       <BrowserRouter>
         <Header rockets={this.state.rockets} changeRocket={this.changeRocket} />
@@ -75,15 +75,9 @@ class App extends React.Component {
             <Features {...this.state.rocketFeatures} />}
         </Route>
         
-        <Route path='/calendar'>
-          
-          <Calendar />
-        </Route>
+        <Route path='/calendar' component={Calendar} />
 
-        <Route path='/details'>
-          
-          <Details />
-        </Route>
+        <Route path='/details/:id' component={Details} />
 
         {this.state.company && <Footer {...this.state.company} />}        
       </BrowserRouter>
